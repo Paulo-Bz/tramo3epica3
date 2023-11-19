@@ -2,10 +2,9 @@
   "name": "tramo3epica3",
   "version": "1.0.0",
   "description": "",
-  "main": "servidorExpress.js",
+  "main": "servidor.js",
   "scripts": {
-    "dev": "nodemon servidorExpress"
-    
+    "dev": "nodemon src/servidor"
   },
   "author": "",
   "license": "ISC",
