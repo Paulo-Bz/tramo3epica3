@@ -8,7 +8,6 @@ GeorefController.obtenerProvincias = async (req, res) => {
 
     const respuesta = await axios.get(url)
 
-    // console.log(respuest)
 
     return res.json(respuesta.data);
 
