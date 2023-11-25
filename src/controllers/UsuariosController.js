@@ -1,13 +1,23 @@
+const UsuarioModel = require('../models/UsuarioModel.js')
+
 const UsuariosController = {}
 
-const lista_usuarios = [
+/*const lista_usuarios = [
     { nombre: 'juan' },
     { nombre: 'carlos' }
-];
+];*/
 
 // ver usuarios
-UsuariosController.verUsuarios = (req, res) => {
-    return res.json(lista_usuarios);
+UsuariosController.verUsuarios = async (req, res) => {
+    try {
+        const lista_usuarios = await UsuarioModel.findAll();
+        return res.json(lista_usuarios);
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: "Ocurrio un error interno",
+            error: "error",
+        });
+    }
 
 }
 
