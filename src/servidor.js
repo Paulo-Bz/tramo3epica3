@@ -4,11 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fileupload = require('express-fileupload');
 
-const { TestConnection } = require('./config/SequelizeConfig.js');
+const { TestConnection } = require('./DataBase/SequelizeConfig.js');
 const router = require('./routes/UsuarioRoutes.js');
 const autenticacionRouter = require('./routes/AutenticacionRoute.js');
 const ArchivosRoutes = require('./routes/ArchivosRoutes.js');
 const GeorefRoutes = require('./routes/GeorefRoutes.js');
+const conectarMongo = require('./DataBase/MongooseConfig.js');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -32,7 +33,8 @@ app.use(GeorefRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
-    TestConnection();
+    //TestConnection();
+    conectarMongo();
 });
 
 
